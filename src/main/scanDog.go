@@ -5,8 +5,11 @@ import (
     "fmt"
 )
 
-func getPortSlice() (portSlice []int) {
-    for port := 0; port <= 65535; port++ {
+/**
+    获取PORT范围slice
+ */
+func getPortSlice(beginPort, endPort int) (portSlice []int) {
+    for port := beginPort; port <= endPort; port++ {
         portSlice = append(portSlice, port)
     }
 
@@ -33,7 +36,7 @@ func main()  {
     // IP地址
     ip := "180.97.33.107"
     // PORT
-    portSlice := getPortSlice()
+    portSlice := getPortSlice(0, 65535)
 
     for index, port := range portSlice {
         // 返回测试过的IP地址与测试结果
